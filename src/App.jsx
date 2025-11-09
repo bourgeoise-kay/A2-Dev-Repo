@@ -1,35 +1,14 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Admin, Resource, ListGuesser } from "react-admin";
+import { BookList } from './books';
+import { createTrailbaseProvider } from './ra-trailbase';
 
-function App() {
-  const [count, setCount] = useState(0)
+const TRAILBASE_URL = 'https://miniature-palm-tree-q79gwj549944f4rv6-4000.app.github.dev/_/admin/table/books'; 
+const { dataProvider, authProvider } = await createTrailbaseProvider(TRAILBASE_URL);
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+const App = () => (
+  <Admin dataProvider={dataProvider} authProvider={authProvider}>
+    <Resource name="books" list={BookList}/>
+  </Admin>
+);
 
-export default App
+export default App;
