@@ -12,3 +12,8 @@ const App = () => (
 );
 
 export default App;
+
+
+
+// EXISTS (SELECT 1 FROM table
+//      WHERE table.'User_ID' = _USER_.id AND table.id = _ROW_.id) 
