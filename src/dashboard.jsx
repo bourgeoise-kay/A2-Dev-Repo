@@ -7,7 +7,7 @@ export default function Dashboard() {
     <Card>
       <CardHeader title="Welcome to the Books Admin" />
       <CardContent>
-        This is a practice dashboard. Use the Books resource to list, show, create and edit books.
+        Hi bee don't worry it will all be okey
       </CardContent>
     </Card>
   );
